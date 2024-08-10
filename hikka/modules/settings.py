@@ -58,12 +58,6 @@ class CoreMod(loader.Module):
                 utils.get_commit_url(),
                 f"{hikkatl.__version__} #{hikkatl.tl.alltlobjects.LAYER}",
             )
-            + (
-                ""
-                if version.branch == "master"
-                else self.strings("unstable").format(version.branch)
-            ),
-        )
 
     @loader.command()
     async def blacklist(self, message: Message):
