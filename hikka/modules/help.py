@@ -26,17 +26,17 @@ class Help(loader.Module):
         self.config = loader.ModuleConfig(
             loader.ConfigValue(
                 "core_emoji",
-                "▪️",
+                "<emoji document_id=4974681956907221809>🛑</emoji>",
                 lambda: "Core module bullet",
             ),
             loader.ConfigValue(
                 "plain_emoji",
-                "▫️",
+                "<emoji document_id=4974508259839836856>🛑</emoji>",
                 lambda: "Plain module bullet",
             ),
             loader.ConfigValue(
                 "empty_emoji",
-                "🙈",
+                "<emoji document_id=5100652175172830068>🟠</emoji>",
                 lambda: "Empty modules bullet",
             ),
         )
