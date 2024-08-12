@@ -160,7 +160,7 @@ class CoreMod(loader.Module):
             message,
             self.strings("aliases")
             + "\n".join([
-                f"▫️ <code>{i}</code> &lt;- {y}"
+                f"<emoji document_id=4974259868996207180>🛑</emoji> <code>{i}</code> &lt;- {y}"
                 for i, y in self.allmodules.aliases.items()
             ]),
         )
