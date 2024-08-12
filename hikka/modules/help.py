@@ -28,7 +28,6 @@ class Help(loader.Module):
                 "core_emoji",
                 "▪️",
                 lambda: "Core module bullet",
-                validator=loader.validators.Emoji(length=1),
             ),
             loader.ConfigValue(
                 "plain_emoji",
