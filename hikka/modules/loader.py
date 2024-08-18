@@ -297,26 +297,6 @@ class LoaderMod(loader.Module):
 
                     return MODULE_LOADING_FAILED
 
-            if (
-                not any(
-                    url.startswith(trigger)
-                    for trigger in [
-                        "https://heta.hikariatama.ru/",
-                        "https://mods.hikariatama.ru/",
-                        "https://heta.dan.tatar/",
-                        "https://mods.dan.tatar/",
-                    ]
-                )
-                and message
-                and not await self._verify_lm(
-                    message,
-                    force_pm,
-                    self._inline_dlmod_confirm,
-                    self._inline_load_cancel,
-                )
-            ):
-                return MODULE_LOADING_FORBIDDEN
-
             if message:
                 message = await utils.answer(
                     message,
