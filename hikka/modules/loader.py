@@ -359,6 +359,9 @@ class LoaderMod(loader.Module):
             await utils.answer(message, self.strings("provide_module"))
             return
 
+        path_ = None
+        doc = await msg.download_media(bytes)
+
         try:
             doc = doc.decode()
         except UnicodeDecodeError:
