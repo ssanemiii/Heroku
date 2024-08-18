@@ -379,19 +379,6 @@ class LoaderMod(loader.Module):
             await utils.answer(message, self.strings("provide_module"))
             return
 
-        if not await self._verify_lm(
-            message,
-            force_pm,
-            self._inline_loadmod_confirm,
-            self._inline_load_cancel,
-        ):
-            return
-
-        path_ = None
-        doc = await msg.download_media(bytes)
-
-        logger.debug("Loading external module...")
-
         try:
             doc = doc.decode()
         except UnicodeDecodeError:
