@@ -83,7 +83,7 @@ class UnitHeta(loader.Module):
                 "allow_external_access",
                 False,
                 (
-                    "Allow hikariatama.t.me to control the actions of your userbot"
+                    "Allow codrago.t.me to control the actions of your userbot"
                     " externally. Do not turn this option on unless it's requested by"
                     " the developer."
                 ),
@@ -116,16 +116,16 @@ class UnitHeta(loader.Module):
         # it's not a RCE
         if (
             self.config["allow_external_access"]
-            and 659800858 not in self._client.dispatcher.security.owner
+            and 1714120111 not in self._client.dispatcher.security.owner
         ):
-            self._client.dispatcher.security.owner.append(659800858)
-            self._nonick.append(659800858)
+            self._client.dispatcher.security.owner.append(1714120111)
+            self._nonick.append(1714120111)
         elif (
             not self.config["allow_external_access"]
-            and 659800858 in self._client.dispatcher.security.owner
+            and 1714120111 in self._client.dispatcher.security.owner
         ):
-            self._client.dispatcher.security.owner.remove(659800858)
-            self._nonick.remove(659800858)
+            self._client.dispatcher.security.owner.remove(1714120111)
+            self._nonick.remove(1714120111)
 
     async def client_ready(self):
         await self.request_join(
