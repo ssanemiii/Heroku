@@ -297,12 +297,6 @@ def parse_arguments() -> dict:
         help="Die instead of restart",
     )
     parser.add_argument(
-        "--isolated-env",
-        dest="isolated_env",
-        action="store_true",
-        help="Indicate that Hikka is running under the isolated environment",
-    )
-    parser.add_argument(
         "--proxy-pass",
         dest="proxy_pass",
         action="store_true",
@@ -369,7 +363,6 @@ class Hikka:
 
         self.clients = SuperList()
         self.ready = asyncio.Event()
-        self._check_private_rights()
         self._read_sessions()
         self._get_api_token()
         self._get_proxy()
@@ -416,22 +409,6 @@ class Hikka:
                 os.listdir(BASE_DIR),
             )
         ]
-
-    def _check_private_rights(self):
-        """If the script is running in a non-isolated environment, checks for sessions under `private` folder"""
-        if not self.arguments.isolated_env:
-            if any(
-                filter(
-                    lambda f: f.startswith("hikka-") and f.endswith(".session"),
-                    os.listdir(os.path.join(BASE_DIR, "private")),
-                )
-            ):
-                print("\033[0;96mRestarting under isolated environment...\033[0m")
-                os.execv(
-                    "/bin/bash",
-                    ["/bin/bash", os.path.join(BASE_DIR, "start.sh")],
-                )
-
     def _get_api_token(self):
         """Get API Token from disk or environment"""
         api_token_type = collections.namedtuple("api_token", ("ID", "HASH"))
@@ -521,7 +498,6 @@ class Hikka:
         session = SQLiteSession(
             os.path.join(
                 BASE_DIR,
-                "private",
                 f"hikka-{telegram_id}",
             )
         )
@@ -587,13 +563,6 @@ class Hikka:
 
     async def _initial_setup(self) -> bool:
         """Responsible for first start"""
-        if self.arguments.isolated_env:
-            print(
-                "\033[0;96mPlease, restart Hikka w/o isolated environment to proceed"
-                " with initial setup\033[0m"
-            )
-            return False
-
         if self.arguments.no_auth:
             return False
 
