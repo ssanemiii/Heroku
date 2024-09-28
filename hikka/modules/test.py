@@ -84,18 +84,6 @@ class TestMod(loader.Module):
         logging.getLogger().handlers[0].ignore_common = self.config["ignore_common"]
 
     @loader.command()
-    async def dump(self, message: Message):
-        if not message.is_reply:
-            return
-
-        await utils.answer(
-            message,
-            "<code>"
-            + utils.escape_html((await message.get_reply_message()).stringify())
-            + "</code>",
-        )
-
-    @loader.command()
     async def clearlogs(self, message: Message):
         for handler in logging.getLogger().handlers:
             handler.buffer = []
@@ -141,26 +129,8 @@ class TestMod(loader.Module):
             return
 
     @loader.command()
-    async def pbe(self, message: Message):
-        await utils.answer(
-            message,
-            "<emoji document_id=4929731207144407638>🚫</emoji> <b>READ THIS"
-            " CAREFULLY!</b>\n\nBeta versions (<b>even Public Beta Environment!</b>)"
-            " are highly unstable. You might experience problems with your server,"
-            " account, or Hikka installation. This may cause irreversible damage to"
-            " your server and account, or might just require Hikka re-installation."
-            " Proceed with caution!\n\n<b>By executing any commands below you agree"
-            " with the following:</b>\n· You take full responsibility over your"
-            " actions\n· Any problems, appeared after updating to PBE, you fix"
-            " yourself\n· If you ask for help with PBE, you will be banned in support"
-            " chat\n\n<b>Update to PBE</b>:\n<code>{}terminal git fetch -a && git"
-            " checkout pbe && git pull</code>".format(
-                utils.escape_html(self.get_prefix())
-            ),
-        )
-
-    @loader.command()
     async def debugmod(self, message: Message):
+        """| debug mod for your modules!"""
         args = utils.get_args_raw(message)
         instance = None
         for module in self.allmodules.modules:
@@ -328,7 +298,7 @@ class TestMod(loader.Module):
             *main.__version__,
             (
                 " <a"
-                f' href="https://github.com/hikariatama/Hikka/commit/{ghash}">@{ghash[:8]}</a>'
+                f' href="https://github.com/coddrago/Hikka/commit/{ghash}">@{ghash[:8]}</a>'
                 if ghash
                 else ""
             ),
@@ -367,18 +337,20 @@ class TestMod(loader.Module):
     async def ping(self, message: Message):
         start = time.perf_counter_ns()
         message = await utils.answer(message, "🌘")
-
+        
+        if message.client.get_entity.premium == False:
+            await utils.answer(message, self.strings["noprem_ping"].format(
+                round((time.perf_counter_ns() - start) / 10**6, 3),
+                utils.formatted_uptime(),
+            )
+        )
+        else:
         await utils.answer(
             message,
             self.strings("results_ping").format(
                 round((time.perf_counter_ns() - start) / 10**6, 3),
                 utils.formatted_uptime(),
             )
-            + (
-                ("\n\n" + self.strings("ping_hint"))
-                if random.choice([0, 0, 1]) == 1
-                else ""
-            ),
         )
 
     async def client_ready(self):
@@ -388,7 +360,7 @@ class TestMod(loader.Module):
             "🌘 Your Hikka logs will appear in this chat",
             silent=True,
             invite_bot=True,
-            avatar="https://github.com/hikariatama/assets/raw/master/hikka-logs.png",
+            avatar="https://github.com/coddrago/assets/raw/master/hikka-logs.png",
         )
 
         self.logchat = int(f"-100{chat.id}")
