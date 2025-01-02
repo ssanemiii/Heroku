@@ -209,7 +209,7 @@ class UpdaterMod(loader.Module):
                             "text": self.strings("btn_update"),
                             "callback": self.inline_update,
                         },
-                        {"text": self.strings("cancel"), "callback": self.close},
+                        {"text": self.strings("cancel"), "action": "close"},
                     ],
                 )
             ):
