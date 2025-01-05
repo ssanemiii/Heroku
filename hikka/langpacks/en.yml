@@ -382,7 +382,7 @@ updater:
   no_update: "🚸 <b>You are on the latest version, pull updates anyway?</b>"
   cancel: "🚫 Cancel"
   lavhost_update: "<emoji document_id=5469986291380657759>✌️</emoji> <b>Your {} is updating...</b>"
-  full_success: "<emoji document_id=5208622108191506906>👍</emoji> <b>Userbot is fully loaded! {}</b>\n<i>Full restart took {}s</i>"
+  full_success: "<emoji document_id=6028215594707324419>👍</emoji> <b>Userbot is fully loaded! {}</b>\n<i>Full restart took {}s</i>"
   secure_boot_complete: "<emoji document_id=5472308992514464048>🔐</emoji> <b>Secure boot completed! {}</b>\n<i>Restart took {}s</i>"
   _cmd_doc_restart: "Restarts the userbot"
   _cmd_doc_source: "Links the source code of this project"
