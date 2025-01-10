@@ -150,11 +150,17 @@ def generate_random_system_version():
     :example: "Windows 10.0.19042.1234" or "Ubuntu 20.04.19042.1234"
     """
     os_choices = [
-        ("Android", "OS"),
-        ("IOS", "18.0.1"),
-        ("macOS", "17.9.6"),
+        ("Android", "15"),
+        ("IOS", "18.2"),
+        ("macOS 15", "Sequoia"),
         ("Windows", "11"),
-        ("11", "30"),
+        ("Windows", "10"),
+        ("Simply Linux", "10.4"),
+        ("Nobara Linux", "41"),
+        ("iPadOS", "18"),
+        ("Manjaro Linux 24.2.1", "Yonada"),
+        ("CentOS Stream", "10"),
+        
     ]
     os_name, os_version = random.choice(os_choices)
 
