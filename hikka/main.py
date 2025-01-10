@@ -109,33 +109,8 @@ with contextlib.suppress(Exception):
 
 # fmt: off
 LATIN_MOCK = [
-    "Amor", "Arbor", "Astra", "Aurum", "Bellum", "Caelum",
-    "Calor", "Candor", "Carpe", "Celer", "Certo", "Cibus",
-    "Civis", "Clemens", "Coetus", "Cogito", "Conexus",
-    "Consilium", "Cresco", "Cura", "Cursus", "Decus",
-    "Deus", "Dies", "Digitus", "Discipulus", "Dominus",
-    "Donum", "Dulcis", "Durus", "Elementum", "Emendo",
-    "Ensis", "Equus", "Espero", "Fidelis", "Fides",
-    "Finis", "Flamma", "Flos", "Fortis", "Frater", "Fuga",
-    "Fulgeo", "Genius", "Gloria", "Gratia", "Gravis",
-    "Habitus", "Honor", "Hora", "Ignis", "Imago",
-    "Imperium", "Inceptum", "Infinitus", "Ingenium",
-    "Initium", "Intra", "Iunctus", "Iustitia", "Labor",
-    "Laurus", "Lectus", "Legio", "Liberi", "Libertas",
-    "Lumen", "Lux", "Magister", "Magnus", "Manus",
-    "Memoria", "Mens", "Mors", "Mundo", "Natura",
-    "Nexus", "Nobilis", "Nomen", "Novus", "Nox",
-    "Oculus", "Omnis", "Opus", "Orbis", "Ordo", "Os",
-    "Pax", "Perpetuus", "Persona", "Petra", "Pietas",
-    "Pons", "Populus", "Potentia", "Primus", "Proelium",
-    "Pulcher", "Purus", "Quaero", "Quies", "Ratio",
-    "Regnum", "Sanguis", "Sapientia", "Sensus", "Serenus",
-    "Sermo", "Signum", "Sol", "Solus", "Sors", "Spes",
-    "Spiritus", "Stella", "Summus", "Teneo", "Terra",
-    "Tigris", "Trans", "Tribuo", "Tristis", "Ultimus",
-    "Unitas", "Universus", "Uterque", "Valde", "Vates",
-    "Veritas", "Verus", "Vester", "Via", "Victoria",
-    "Vita", "Vox", "Vultus", "Zephyrus"
+    "Apple Watch Series 6", "Samsung Galaxy Ace 3", "Huawei P40 Pro", "HTC One M9", "Blackview BV8000 Pro", "Samsung Galaxy Y Pro",
+    "Fly IQ 285 Turbo", "Elephone P8 Mini", "Honor 10 Lite", "Samsung Galaxy M Pro", "Apple Watch Series 10", "Samsung Galaxy Note II", "MacBook Air", "iMac", "MacBook Pro Retina", "iMac Pro" 
 ]
 # fmt: on
 
@@ -146,7 +121,7 @@ def generate_app_name() -> str:
     :return: Random app name
     :example: "Cresco Cibus Consilium"
     """
-    return " ".join(random.choices(LATIN_MOCK, k=3))
+    return " ".join(random.choices(LATIN_MOCK, k=1))
 
 
 def get_app_name() -> str:
@@ -175,9 +150,11 @@ def generate_random_system_version():
     :example: "Windows 10.0.19042.1234" or "Ubuntu 20.04.19042.1234"
     """
     os_choices = [
-        ("Android", "14.8.8"),
+        ("Android", "OS"),
         ("IOS", "18.0.1"),
         ("macOS", "17.9.6"),
+        ("Windows", "11"),
+        ("11", "30"),
     ]
     os_name, os_version = random.choice(os_choices)
 
