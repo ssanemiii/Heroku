@@ -110,7 +110,7 @@ with contextlib.suppress(Exception):
 # fmt: off
 LATIN_MOCK = [
     "Apple Watch Series 6", "Samsung Galaxy Ace 3", "Huawei P40 Pro", "HTC One M9", "Blackview BV8000 Pro", "Samsung Galaxy Y Pro",
-    "Fly IQ 285 Turbo", "Elephone P8 Mini", "Honor 10 Lite", "Samsung Galaxy M Pro", "Apple Watch Series 10", "Samsung Galaxy Note II", "MacBook Air", "iMac", "MacBook Pro Retina", "iMac Pro" 
+    "Fly IQ 285 Turbo", "Elephone P8 Mini", "Honor 10 Lite", "Samsung Galaxy M Pro", "Apple Watch Series 10", "Samsung Galaxy Note II", "MacBook Air", "iMac", "MacBook Pro Retina", "iMac Pro", "Redmi Note 12 Pro" 
 ]
 # fmt: on
 
