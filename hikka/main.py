@@ -109,8 +109,8 @@ with contextlib.suppress(Exception):
 
 # fmt: off
 LATIN_MOCK = [
-    "Apple Watch Series 6", "Samsung Galaxy Ace 3", "Huawei P40 Pro", "HTC One M9", "Blackview BV8000 Pro", "Samsung Galaxy Y Pro",
-    "Fly IQ 285 Turbo", "Elephone P8 Mini", "Honor 10 Lite", "Samsung Galaxy M Pro", "Apple Watch Series 10", "Samsung Galaxy Note II", "MacBook Air", "iMac", "MacBook Pro Retina", "iMac Pro", "Redmi Note 12 Pro", "IPhone 11", "IPhone 12", "IPhone 13", "IPhone 14", "IPhone 15", "Linux 12 Bookworm"
+    "OmniWeb 5.0", "Chrome 97–107"," Firefox 108–121.0", "Opera 106-Current",
+    "Arc 1.10-1.21.0", "Yandex Browser 17.11.1.988", "Ecosia Browser 1.0.0.31–Current", "Opera 106-Current", "Microsoft Edge 121–Current"
 ]
 # fmt: on
 
@@ -150,14 +150,18 @@ def generate_random_system_version():
     :example: "Windows 10.0.19042.1234" or "Ubuntu 20.04.19042.1234"
     """
     os_choices = [
-        ("Android", "15"),
-        ("IOS", "18.2"),
-        ("macOS 15", "Sequoia"),
+        ("Android SDK", "19"),
+        ("Windows", "8.1"),
+        ("Android SDK", "23"),
         ("Windows", "11"),
-        ("Simply Linux", "10.4"),
-        ("iPadOS", "18"),
-        ("Manjaro Linux 24.2.1", "Yonada"),
-        ("CentOS Stream", "10"),
+        ("Linux", "10.4"),
+        ("OS X", "10.11.3"),
+        ("Windows Phone", "8.1"),
+        ("Android SDK", "15"),
+        ("Android 9 P", "(28)"),
+        ("IOS", "11.3.1"),
+        ("Ubuntu", "24.04"),
+        
         
     ]
     os_name, os_version = random.choice(os_choices)
